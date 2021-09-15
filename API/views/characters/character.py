@@ -1,8 +1,8 @@
 import requests
 import json
-from django.http import JsonResponse, HttpResponse
-from rest_framework import views, status, permissions
-from rest_framework.response import Response
+from django.http import HttpResponse
+from rest_framework import views
+
 
 from API.lib.headers import request_headers, BASE_URL
 

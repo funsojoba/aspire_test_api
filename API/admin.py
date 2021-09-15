@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from API.models import CharacterModel, QuoteModel
+
+
+admin.site.register((CharacterModel, QuoteModel))
