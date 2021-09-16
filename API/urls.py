@@ -7,15 +7,18 @@ from .views.characters.character import Character
 from .views.characters.quotes import Quote
 from .views.authenticate.signup import SignUpView
 from .views.characters.favorite_character import FavoriteCharacter
+from .views.characters.favorite_quote import FavoriteQuote
+
 
 urlpatterns = [
     path('login', views.obtain_auth_token),
     path('signup', SignUpView.as_view(), name="sign_up"),
 
-    path('characters', GetCharacters.as_view(), name="characters"),
+    path('characters', GetCharacters.as_view(), name="all_characters"),
     path('characters/<str:pk>/quote', CharacterQuote.as_view(), name="character_quote"),
-    path('characters/<str:pk>', Character.as_view(), name="character_quote"),
+    path('characters/<str:pk>', Character.as_view(), name="character"),
     path('quote', Quote.as_view(), name="quote"),
     path('characters/<str:pk>/favorites', FavoriteCharacter.as_view(),
-         name="favorite_character")
+         name="favorite_character"),
+    path('characters/<str:id>/quotes/<str:pk>/favorites', FavoriteQuote.as_view(), name="favority_quote")
 ]

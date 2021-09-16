@@ -31,3 +31,5 @@ class QuoteModel(models.Model):
     dialogue = models.CharField(max_length=245, blank=True, null=True)
     movie = models.CharField(max_length=245, blank=True, null=True)
     character = models.CharField(max_length=245, blank=True, null=True)
+    favorite_character = models.CharField(max_length=256, blank=True)
+    

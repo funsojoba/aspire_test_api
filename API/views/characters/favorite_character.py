@@ -1,7 +1,5 @@
-from django.db import models
 import requests
 import json
-from django.http import HttpResponse
 
 from rest_framework import views, permissions, status
 from rest_framework.response import Response
@@ -18,6 +16,10 @@ class FavoriteCharacter(views.APIView):
         api_request = requests.get(
             BASE_URL+'character/'+pk, headers=request_headers())
         api_response = json.dumps(api_request.json())
+
+        db_record = CharacterModel.objects.filter(character_id=pk)
+        if db_record:
+            return Response({"success": False, "message": "quote is already made a favorite"}, status=status.HTTP_400_BAD_REQUEST)
 
         data = json.loads(api_response).get('docs')[0]
         character_id = data.get('_id', '')
