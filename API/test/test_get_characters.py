@@ -10,9 +10,9 @@ class TestFetchAllCharacters(APITestCase):
 
     def setUp(self):
         get_user_model().objects.create(
-            email="ajibolagureje@gmail.com", password='123456'
+            email="test@email.com", password='123456', username="testMan"
         )
-        self.user = get_user_model().objects.get(email='ajibolagureje@gmail.com')
+        self.user = get_user_model().objects.get(email='test@email.com')
         self.url = reverse('all_characters')
 
     def test_annonimous_user_cannot_get_characters(self):

@@ -8,7 +8,7 @@ from API.lib.headers import request_headers, BASE_URL
 
 
 class CharacterQuote(views.APIView):
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     def get(self, request, pk):
         try:
             api_request = requests.get(
