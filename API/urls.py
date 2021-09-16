@@ -8,6 +8,7 @@ from .views.characters.quotes import Quote
 from .views.authenticate.signup import SignUpView
 from .views.characters.favorite_character import FavoriteCharacter
 from .views.characters.favorite_quote import FavoriteQuote
+from .views.characters.favorites import FavoriteView
 
 
 urlpatterns = [
@@ -20,5 +21,6 @@ urlpatterns = [
     path('quote', Quote.as_view(), name="quote"),
     path('characters/<str:pk>/favorites', FavoriteCharacter.as_view(),
          name="favorite_character"),
-    path('characters/<str:id>/quotes/<str:pk>/favorites', FavoriteQuote.as_view(), name="favority_quote")
+    path('characters/<str:id>/quotes/<str:pk>/favorites', FavoriteQuote.as_view(), name="favority_quote"),
+    path('favorites', FavoriteView.as_view(), name="favorites")
 ]
