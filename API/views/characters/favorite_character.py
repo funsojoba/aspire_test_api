@@ -1,5 +1,4 @@
-import requests
-import json
+import requests, json
 
 from rest_framework import views, permissions, status
 from rest_framework.response import Response

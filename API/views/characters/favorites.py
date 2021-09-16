@@ -6,7 +6,6 @@ from rest_framework import status, permissions, views
 from rest_framework.response import Response
 
 
-
 class FavoriteView(views.APIView):
     permission_classes = [permissions.IsAuthenticated]
 

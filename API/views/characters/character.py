@@ -1,14 +1,12 @@
-import requests
-import json
+import requests, json
 from django.http import HttpResponse
-from rest_framework import views
-
+from rest_framework import views, permissions
 
 from API.lib.headers import request_headers, BASE_URL
 
 
 class Character(views.APIView):
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     def get(self, request, pk):
         api_request = requests.get(
             BASE_URL+'character/'+pk, headers=request_headers())
